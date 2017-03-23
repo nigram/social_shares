@@ -16,6 +16,8 @@ require 'social_shares/stumbleupon'
 require 'social_shares/weibo'
 require 'social_shares/buffer'
 
+RestClient.proxy = ENV['SOCIAL_SHARES_HTTP_PROXY'] if ENV['SOCIAL_SHARES_HTTP_PROXY'].present?
+
 module SocialShares
   class << self
     include SocialShares::StringHelper
