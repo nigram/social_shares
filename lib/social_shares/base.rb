@@ -45,11 +45,11 @@ module SocialShares
     end
 
     def get(url, params)
-      RestClient::Resource.new(url, timeout: timeout, open_timeout: open_timeout).get(params)
+      RestClient::Resource.new(url, timeout: timeout, open_timeout: open_timeout, proxy: ENV['SOCIAL_SHARES_HTTP_PROXY']).get(params)
     end
 
     def post(url, params, headers = {})
-      RestClient::Resource.new(url, timeout: timeout, open_timeout: open_timeout).post(params, headers)
+      RestClient::Resource.new(url, timeout: timeout, open_timeout: open_timeout, proxy: ENV['SOCIAL_SHARES_HTTP_PROXY']).post(params, headers)
     end
   end
 end
